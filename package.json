@@ -1,0 +1,46 @@
+{
+  "name": "spotify_wrapper",
+  "version": "1.0.0",
+  "description": "One Paragraph of project description goes here",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "./node_modules/.bin/mocha src/tests/**/*.spec.js --require @babel/register",
+    "test:tdd": "npm test -- --progress --bail --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelLimaReis/spotify_wrapper.git"
+  },
+  "author": "Rafael Lima <rafaellimareis01@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RafaelLimaReis/spotify_wrapper/issues"
+  },
+  "homepage": "https://github.com/RafaelLimaReis/spotify_wrapper#readme",
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/register": "7.5.5",
+    "chai": "4.2.0",
+    "eslint": "6.2.2",
+    "eslint-plugin-mocha": "6.1.0",
+    "husky": "3.0.4",
+    "mocha": "6.2.0",
+    "nyc": "14.1.1"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "**/tests/**"
+    ],
+    "check-coverage": true,
+    "functions": 80,
+    "lines": 80
+  }
+}
