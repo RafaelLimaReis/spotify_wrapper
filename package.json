@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint && npm run test:coverage",
-    "test": "./node_modules/.bin/mocha src/tests/**/*.spec.js --require @babel/register",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
     "test:tdd": "npm test -- --progress --bail --watch",
     "test:coverage": "nyc npm test"
   },
@@ -29,7 +29,11 @@
     "eslint-plugin-mocha": "6.1.0",
     "husky": "3.0.4",
     "mocha": "6.2.0",
-    "nyc": "14.1.1"
+    "node-fetch": "2.6.0",
+    "nyc": "14.1.1",
+    "sinon": "7.4.2",
+    "sinon-chai": "3.3.0",
+    "sinon-stub-promise": "4.0.0"
   },
   "nyc": {
     "reporter": [
