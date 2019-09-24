@@ -75,4 +75,52 @@ describe('Spotify Wrapper', () => {
       })
     });
   });
+
+  describe('Search Artists', () => {
+    it('should call fetch function', () => {
+      searchArtists('Projota');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      searchArtists('Projota');
+      expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=artist`)
+    });
+  });
+
+  describe('Search Albums', () => {
+    it('should call fetch function', () => {
+      searchAlbums('Projota');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      searchAlbums('Projota');
+      expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=album`)
+    });
+  });
+
+  describe('Search tracks', () => {
+    it('should call fetch function', () => {
+      searchTracks('Projota');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      searchTracks('Projota');
+      expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=track`)
+    });
+  });
+
+  describe('Search playlists', () => {
+    it('should call fetch function', () => {
+      searchPlaylists('Projota');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      searchPlaylists('Projota');
+      expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=playlist`)
+    });
+  });
 });
