@@ -5,10 +5,10 @@ global.fetch = require('node-fetch');
 
 chai.use(sinonChai);
 
-import { search, searchAlbums, searchArtists, searchTracks, searchPlaylists } from '../src/main';
+import { search, searchAlbums, searchArtists, searchTracks, searchPlaylists } from '../src/search';
 import { API_URL } from '../src/config';
 
-describe('Spotify Wrapper', () => {
+describe('search', () => {
   let fetchedStub;
 
   beforeEach(() => {

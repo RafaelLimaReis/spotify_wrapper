@@ -1,8 +1,8 @@
 import { API_URL, HEADERS } from './config';
+import { toJSON } from './utils';
 
 const search = (param, type) => {
-  return fetch(`${API_URL}/search?q=${param}&type=${type}`, HEADERS)
-    .then(data => data.json());
+  return fetch(`${API_URL}/search?q=${param}&type=${type}`, HEADERS).then(toJSON);
 }
 
 const searchArtists = (artist) => {
@@ -20,7 +20,7 @@ const searchPlaylists = (playlist) => {
   return search(playlist, 'playlist');
 }
 
-export {
+module.exports = {
   search,
   searchAlbums,
   searchArtists,
