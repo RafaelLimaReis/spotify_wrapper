@@ -12,7 +12,7 @@ const getAlbumTracks = (idAlbum) => {
   return fetch(`${API_URL}/albums/${idAlbum}/tracks`, HEADERS).then(toJSON);
 }
 
-module.exports = {
+export {
   getAlbum,
   getAlbums,
   getAlbumTracks

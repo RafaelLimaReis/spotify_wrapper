@@ -12,7 +12,7 @@ import {
   getAlbumTracks
 } from '../src/album.js';
 
-module.exports = {
+export {
   search,
   searchAlbums,
   searchArtists,

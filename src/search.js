@@ -20,7 +20,7 @@ const searchPlaylists = (playlist) => {
   return search(playlist, 'playlist');
 }
 
-module.exports = {
+export {
   search,
   searchAlbums,
   searchArtists,
