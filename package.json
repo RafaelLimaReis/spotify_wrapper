@@ -14,7 +14,8 @@
     "build:watch": "npm run build -- --watch",
     "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
     "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
-    "build:all": "npm run build && npm run build:umd && npm run build:umd:min"
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
+    "coveralls":"npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "@babel/register": "7.5.5",
     "babel-loader": "8.0.6",
     "chai": "4.2.0",
+    "coveralls": "3.0.6",
     "eslint": "6.2.2",
     "eslint-plugin-mocha": "6.1.0",
     "husky": "3.0.4",
