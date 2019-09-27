@@ -1,5 +1,5 @@
 # Spotify Wrapper
-[![Build Status](https://travis-ci.org/RafaelLimaReis/spotify_wrapper.svg?branch=master)](https://travis-ci.org/RafaelLimaReis/spotify_wrapper)
+[![Build Status](https://travis-ci.org/RafaelLimaReis/spotify_wrapper.svg?branch=master)](https://travis-ci.org/RafaelLimaReis/spotify_wrapper) [![Coverage Status](https://coveralls.io/repos/github/RafaelLimaReis/spotify_wrapper/badge.svg?branch=master)](https://coveralls.io/github/RafaelLimaReis/spotify_wrapper?branch=master)
 
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
