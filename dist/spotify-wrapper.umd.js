@@ -138,7 +138,9 @@ var getAlbumTracks = function getAlbumTracks(idAlbum) {
 /***/ (function(module, exports) {
 
 var API_URL = 'https://api.spotify.com/v1';
-var TOKEN_API = 'BQAoT7Bq1sREqoq5EXH6QDAZE1VBtl97ozst_9Yy6tlesnxjoD0cQkAUI-GtfwMC-V-W7ufELfztN9FWakbmRr91aLsj4KNIE5Ms2gm_BJDoFAbI3XgVD2Pd7hKd3b0dFR9GMuRmiIH-zGTnogIkuwSOjihWjgSJyGNB1qi8zT53jmenFZErsyHWpEBDJitjS3VauFu-Ouht_CeEHKHdwQdPZaccoWdEALm2RDI3SUZ7ym8Lt30Va6vAB1JwYPn5su2cxATFRsWkw_sAEu6mZfh4';
+var TOKEN_API = 'BQD0mFqnpO9Or-CzeOpRgS1oMEAubIj126Z2T8-Q6ZF7auJZFn4U_2dX6NzB1Un5EC8s8mB2jpfdoBTa4jQs6ZMKVCBng8lFigjeUfQA83DrhZMLnj5krS14ysg_pgKMtFhbwKG2olRJvSl1D6CprX5EilJdz4LnAa60tcxRnOadXvet0irTJdV6KHs30vlYe5oN0ikMUolMpon8tKwAw4RLc3Dq1wKWqq-uDzMQ2sXkzSywFgkx8gRjiG5fpIck49uHk-YKwhtLbDg8E9CKzJD5';
+/*  https://developer.spotify.com/console/get-search-item/ */
+
 var HEADERS = {
   headers: {
     Authorization: "Bearer ".concat(TOKEN_API)
