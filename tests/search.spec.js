@@ -5,13 +5,18 @@ global.fetch = require('node-fetch');
 
 chai.use(sinonChai);
 
-import { search, searchAlbums, searchArtists, searchTracks, searchPlaylists } from '../src/search';
+import SpotifyWrapper from '../src/index';
 import { API_URL } from '../src/config';
 
 describe('search', () => {
+  let spotify;
   let fetchedStub;
 
   beforeEach(() => {
+    spotify = new SpotifyWrapper({
+      token: 'foo'
+    });
+
     fetchedStub = sinon.stub(global, 'fetch');
     fetchedStub.resolves({ json: () => ({ album: 'name' })});
   });
@@ -21,105 +26,70 @@ describe('search', () => {
   });
   /**
    * search (generico)
-   * searchAlbums
-   * searchArtists
-   * searchTracks
-   * searchPlaylists
+   * albums
+   * artists
+   * tracks
+   * playlists
    */
   describe('Smoke tests', () => {
-    it('should exist the search method', () => {
-      expect(search).to.exist;
+    it('should exist the albums method', () => {
+      expect(spotify.search.albums).to.exist;
     });
-    it('should exist the searchAlbums method', () => {
-      expect(searchAlbums).to.exist;
+    it('should exist the artists method', () => {
+      expect(spotify.search.artists).to.exist;
     });
-    it('should exist the searchArtists method', () => {
-      expect(searchArtists).to.exist;
+    it('should exist the tracks method', () => {
+      expect(spotify.search.tracks).to.exist;
     });
-    it('should exist the searchTracks method', () => {
-      expect(searchTracks).to.exist;
-    });
-    it('should exist the searchPlaylists method', () => {
-      expect(searchPlaylists).to.exist;
-    });
-  });
-
-  describe('Generic Search', () => {
-    it('should call fetch function', () => {
-      search();
-
-      expect(fetchedStub).to.have.been.calledOnce;
-    });
-
-    it('should recive the correct url to fetch', () => {
-
-      context('passing one type', () => {
-        search('Projota', 'artist');
-        expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=artist`);
-
-        search('Projota', 'album');
-        expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=album`);
-      });
-
-      context('passing more than on type', () => {
-        search('Projota', ['artist', 'album']);
-
-        expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=artist,album`)
-      });
-    });
-
-    it('should return the JSON Data from the Promise', () => {
-      const artist = search('Projota', 'artist');
-      artist.then(data => {
-        expect(data).to.be.eql({ album: 'name' });
-      })
+    it('should exist the playlists method', () => {
+      expect(spotify.search.playlists).to.exist;
     });
   });
 
   describe('Search Artists', () => {
     it('should call fetch function', () => {
-      searchArtists('Projota');
+      spotify.search.artists('Projota');
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('should call fetch with the correct URL', () => {
-      searchArtists('Projota');
+      spotify.search.artists('Projota');
       expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=artist`)
     });
   });
 
   describe('Search Albums', () => {
     it('should call fetch function', () => {
-      searchAlbums('Projota');
+      spotify.search.albums('Projota');
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('should call fetch with the correct URL', () => {
-      searchAlbums('Projota');
+      spotify.search.albums('Projota');
       expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=album`)
     });
   });
 
   describe('Search tracks', () => {
     it('should call fetch function', () => {
-      searchTracks('Projota');
+      spotify.search.tracks('Projota');
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('should call fetch with the correct URL', () => {
-      searchTracks('Projota');
+      spotify.search.tracks('Projota');
       expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=track`)
     });
   });
 
   describe('Search playlists', () => {
     it('should call fetch function', () => {
-      searchPlaylists('Projota');
+      spotify.search.playlists('Projota');
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('should call fetch with the correct URL', () => {
-      searchPlaylists('Projota');
+      spotify.search.playlists('Projota');
       expect(fetchedStub).to.have.been.calledWith(`${API_URL}/search?q=Projota&type=playlist`)
     });
   });
