@@ -11,7 +11,11 @@
 
   <script src="../dist/spotify-wrapper.umd.min.js "></script>
   <script>
-    const albums = spotifyWrapper.searchAlbums('Projota');
+    const spotify = new spotifyWrapper({
+      token: 'BQB4lnR7ahvzruOBEfsqruDYpYLtySpplwo2bza23KIW4hItgsgCRy4GhlNeCjcbr5Z5zga1XaiuEkI6kduitxbn6Bnm6sXAUGXrv7DRbLutxhqU8_FT5N8VDdqyaK89lXgNLwkMxZ0pA3x6z__Eiqbyi-gTOjyOtBMspRb7wcHdAhQz-_DhahkrUNUHRi_GFqXCkzJHNVfyjXfj2wAHB-gTR4hqCbdNmEtkWWMG1odCrn5aL7cpYlRvMZ2_5K2tXTK1NQb4Ag9iJElcgGDhHaKU'
+    });
+
+    const albums = spotify.search.albums('Projota');
     const albumsEl = document.getElementById('albums');
 
     albums.then(data => {
